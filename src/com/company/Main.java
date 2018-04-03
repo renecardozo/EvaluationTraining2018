@@ -4,15 +4,27 @@
 //Mauricio Valdiviesod
 package com.company;
 
+import com.company.*;
+import java.lang.reflect.Method;
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
 	// write your code here
         Veterinary veterinary = new Veterinary();
         //Pet cat = new Cat("Cat", "Black", "2");
-        menu();
+        Pet cat = new Cat("Cat", "Black", 4, "cat");
+        Pet dog = new Dog("Dog", "Black", 5, "dog");
+        Pet parrot = new Parrot("Parrot", "Black", 6, "parrot");
+        veterinary.add(cat);
+        veterinary.add(dog);
+        veterinary.add(parrot);
+        menu(veterinary);
     }
-    public static void menu(){
+
+    public static void menu(Veterinary veterinary){
+        Scanner scanner = new Scanner(System.in);
         int opcion = 0;
         System.out.println("Bien venido a la veterianaria");
         do {
@@ -22,8 +34,11 @@ public class Main {
             System.out.println("3 .Eliminar ");
             System.out.println("4 .Mostrar todo");
             System.out.println("5 .Salir");
+            System.out.println("6 .Reflections by id");
             //
             //Scanner sc = new Scanner(System.in()()
+            opcion = scanner.nextInt();
+            scanner.nextLine();
             switch (opcion){
                 case 1:
 
@@ -37,16 +52,43 @@ public class Main {
                 case 4:
 
                     break;
-
-                    default:
-                        opcion =0;
+                case 5:
+                    break;
+                case 6:
+                    System.out.println("Write the pet ID");
+                    int id = scanner.nextInt();
+                    Pet pet = veterinary.search(id);
+                    if(pet != null) {
+                        Class<?> petClass = pet.getClass();
+                        petMethods(petClass);
+                    } else {
+                        System.out.println("Invalid ID");
+                    }
+                    break;
+                case 7:
+                    break;
+                default:
+                        opcion = 7;
                         break;
 
             }
-        }while (opcion != 0 );
+        }while (opcion != 7 );
         System.out.println("Bien venido a la veterianaria");
         System.out.println("ADD Pets");
 
 
-}
+    }
+
+    public static void petMethods(Class<?> petClass) {
+        try {
+            Method[] methods = petClass.getMethods();
+            System.out.println(petClass.toString());
+            System.out.println("methods length: " + methods.length);
+            for (int i = 0; i < methods.length; i++) {
+                System.out.println((i+1) + ". " + methods[i].toString());
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
 }
