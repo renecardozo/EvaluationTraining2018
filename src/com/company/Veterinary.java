@@ -37,14 +37,29 @@ public class Veterinary {
         }
 
     }
+    public void updatePet(int i, Pet p){
+        Pet toModify;
+        toModify = search(i);
+        if(toModify != null){
+            toModify.setAge(p.getAge());
+            toModify.setColor(p.getColor());
+            toModify.setTipo(p.getTipo());
+            toModify.setName(p.getName());
+        }
+    }
 
-    public void search(int id) {
+    /*public void search(int id) {
         for(int i =0 ; i< pets.size(); i++){
             if(pets.get(i).getId() == id && pets.get(i).getShow())
             {
                 pets.get(i).setShow(false);
             }
         }
+    }*/
+    public Pet search (int id){
+            return null;
     }
+  }
 
-}
+
+
