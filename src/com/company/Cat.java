@@ -15,7 +15,7 @@ public class Cat extends Pet{
 
     @Override
     public void sound(){
-        System.out.println("miau");
+        System.out.println(PetEnum.CAT.getAnimalSound());
     }
     @Override
     public String toString(){
