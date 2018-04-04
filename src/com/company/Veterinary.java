@@ -28,14 +28,15 @@ public class Veterinary {
             }
         }
     }
-    public void remove(int id){
+    public boolean remove(int id){
         for(int i =0 ; i< pets.size(); i++){
             if(pets.get(i).getId() == id )
             {
                 pets.get(i).setShow(false);
+                return true;
             }
         }
-
+        return false;
     }
     public void updatePet(int i, Pet p){
         Pet toModify;
