@@ -3,6 +3,7 @@
 //Mauricio Valdivieso
 //Mauricio Valdiviesod
 package com.company;
+import java.util.Scanner;
 
 import com.company.*;
 import java.lang.reflect.Method;
@@ -11,12 +12,14 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
+
 	// write your code here
         Veterinary veterinary = new Veterinary();
         //Pet cat = new Cat("Cat", "Black", "2");
         Pet cat = new Cat("Cat", "Black", 4, "cat");
         Pet dog = new Dog("Dog", "Black", 5, "dog");
         Pet parrot = new Parrot("Parrot", "Black", 6, "parrot");
+
         veterinary.add(cat);
         veterinary.add(dog);
         veterinary.add(parrot);
@@ -38,6 +41,7 @@ public class Main {
             System.out.println("7 .Exit");
             //
             //Scanner sc = new Scanner(System.in()()
+
             opcion = scanner.nextInt();
             scanner.nextLine();
             switch (opcion){
@@ -47,9 +51,17 @@ public class Main {
                 case 2:
 
                     break;
-                case 3:
+                case 3: //Delete
+                    System.out.println("Enter pet's ID: ");
+                    int id = scanner.nextInt();
+                    if(veterinary.remove(id)){
+                        System.out.println("Pet deleted");
+                        break;
+                    }else{
+                        System.out.println("ID not found");
+                        break;
+                    }
 
-                    break;
                 case 4:
 
                     break;
@@ -88,4 +100,5 @@ public class Main {
             ex.printStackTrace();
         }
     }
+
 }
