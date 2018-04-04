@@ -72,6 +72,7 @@ public class Main {
                             break;
                     }
                     System.out.println("");
+
                     break;
                 case 2:
 
