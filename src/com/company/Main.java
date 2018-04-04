@@ -26,15 +26,16 @@ public class Main {
     public static void menu(Veterinary veterinary){
         Scanner scanner = new Scanner(System.in);
         int opcion = 0;
-        System.out.println("Bien venido a la veterianaria");
+        System.out.println("\n" + "WELCOME TO THE VETERINARY SYSTEM");
         do {
-            System.out.println("Ingrese la opcion ");
-            System.out.println("1 .Ingresar ");
-            System.out.println("2 .Mostrar ");
-            System.out.println("3 .Eliminar ");
-            System.out.println("4 .Mostrar todo");
-            System.out.println("5 .Salir");
-            System.out.println("6 .Reflections by id");
+            System.out.println("Enter the option you want");
+            System.out.println("1 .Register data of the animal   ");
+            System.out.println("2 .Show animals given an ID  ");
+            System.out.println("3 .Remove animal given an ID ");
+            System.out.println("4 .Show all animals ");
+            System.out.println("5 .Show animals by type");
+            System.out.println("6 .Show reflection given an ID");
+            System.out.println("7 .Exit");
             //
             //Scanner sc = new Scanner(System.in()()
             opcion = scanner.nextInt();
@@ -73,10 +74,6 @@ public class Main {
 
             }
         }while (opcion != 7 );
-        System.out.println("Bien venido a la veterianaria");
-        System.out.println("ADD Pets");
-
-
     }
 
     public static void petMethods(Class<?> petClass) {
