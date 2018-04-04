@@ -29,6 +29,7 @@ public class Main {
     public static void menu(Veterinary veterinary){
         Scanner scanner = new Scanner(System.in);
         int opcion = 0;
+
         System.out.println("\n" + "WELCOME TO THE VETERINARY SYSTEM");
         do {
             System.out.println("Enter the option you want");
@@ -51,21 +52,15 @@ public class Main {
                 case 2:
 
                     break;
-                case 3: //Delete
-                    System.out.println("Enter pet's ID: ");
-                    int id = scanner.nextInt();
-                    if(veterinary.remove(id)){
-                        System.out.println("Pet deleted");
-                        break;
-                    }else{
-                        System.out.println("ID not found");
-                        break;
-                    }
+                case 3:
+                    deletePet(veterinary, scanner);
+                    break;
 
                 case 4:
 
                     break;
                 case 5:
+
                     break;
                 case 6:
                     System.out.println("Write the pet ID");
@@ -79,7 +74,10 @@ public class Main {
                     }
                     break;
                 case 7:
+                    System.exit(0);
                     break;
+
+                case 8:
                 default:
                         opcion = 7;
                         break;
@@ -101,4 +99,14 @@ public class Main {
         }
     }
 
+
+    public static void deletePet(Veterinary veterinary, Scanner scanner){
+        System.out.println("Enter pet's ID: ");
+        int id = scanner.nextInt();
+        if(veterinary.remove(id)){
+            System.out.println("Pet deleted");
+        }else{
+            System.out.println("ID not found");
+        }
+    }
 }
