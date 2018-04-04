@@ -26,6 +26,7 @@ public class Main {
         menu(veterinary);
     }
 
+<<<<<<< HEAD
     public static void menu(Veterinary veterinary) {
         Scanner scanner = new Scanner(System.in);
         int opcion = 0;
@@ -33,7 +34,13 @@ public class Main {
         System.out.println("\n" + "WELCOME TO THE VETERINARY SYSTEM");
 
         do {
+=======
+    public static void menu(Veterinary veterinary){
+        int opcion = 0;
+        Scanner scanner = new Scanner(System.in);
+>>>>>>> Add fufunction show all pets and modification in main
 
+        do {
             System.out.println("Enter the option you want");
             System.out.println("1 .Register data of the animal   ");
             System.out.println("2 .Show animals given an ID  ");
@@ -82,6 +89,12 @@ public class Main {
                     deletePet(veterinary, scanner);
                     break;
                 case 4:
+
+                    System.out.println("The full list of Pets is:");
+                    System.out.println();
+                    veterinary.showAllPets();
+                    System.out.println();
+
 
                     break;
                 case 5:

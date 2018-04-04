@@ -15,7 +15,11 @@ public abstract class Pet {
         this.color = color;
         //this.id = id;
         this.name = name;
+<<<<<<< HEAD
         this.show = true;
+=======
+        this.show=true;
+>>>>>>> Add fufunction show all pets and modification in main
     }
 
     public String getTipo() {
