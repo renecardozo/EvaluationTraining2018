@@ -1,7 +1,11 @@
 package com.company;
 
 public enum ValidationResponses {
-    OK("Opcion Valida"), FAILNUMBER("Fallo en Numero"), FAILSTRING("Fallo en cadena");
+    OK("Everything is OK"),
+    NEGATIVENUMBER("The number is negative"),
+    STRINGWITHNUMBERS("The string have numbers on it"),
+    TOOLARGESTRING("The string is over 200 characters"),
+    EMPTYSTRING("The string is empty");
     private String responseMessage;
     ValidationResponses (String message){
         this.responseMessage = message;
