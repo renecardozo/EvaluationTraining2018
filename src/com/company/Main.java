@@ -33,6 +33,7 @@ public class Main {
         System.out.println("\n" + "WELCOME TO THE VETERINARY SYSTEM");
 
         do {
+
             System.out.println("Enter the option you want");
             System.out.println("1 .Register data of the animal   ");
             System.out.println("2 .Show animals given an ID  ");
