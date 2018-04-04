@@ -5,30 +5,34 @@ public class Validator {
     public Validator(){
     }
 
-    public static String Validate(int number){
-        String resp = "Passed";
+    public static ValidationResponses Validate(int number){
         if(number < 0){
-            resp = "The number cant be negative";
+            return ValidationResponses.NEGATIVENUMBER;
         }
-        return resp;
+        if(number >= 100){
+            return ValidationResponses.TOOLARGENUMBER;
+        }
+        return ValidationResponses.OK;
     }
 
-    public static String Validate(String str){
-        String resp = "Passed";
+    public static ValidationResponses Validate(String str){
         if(str.isEmpty()){
-            resp = "The field can't be empty";
+            return ValidationResponses.EMPTYSTRING;
         }
         if(str.length() > 200){
-            resp = "The field can't be too large";
+            return ValidationResponses.TOOLARGESTRING;
         }
-        return resp;
+        for (int i=0; i< str.length();i++){
+             if(isNumber(str.charAt(i))) {
+                 return ValidationResponses.STRINGWITHNUMBERS;
+             }
+        }
+        return ValidationResponses.OK;
+    }
+
+    public static boolean isNumber(char s) {
+        if(s >= 48 && s <= 57)
+            return true;
+        return false;
     }
 }
-
-/* DEMO
- if(Validator.Validate("Here comes the input to validate").equals("Passed")){
-         //Do something
- }else{
-         System.out.println(Validator.Validate("The input to validate"));
- }
-*/
