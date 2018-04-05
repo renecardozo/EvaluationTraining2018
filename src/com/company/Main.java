@@ -3,11 +3,13 @@
 //Mauricio Valdivieso
 //Mauricio Valdiviesod
 package com.company;
-import java.util.Scanner;
 
 import com.company.*;
 import java.lang.reflect.Method;
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 public class Main {
 
@@ -27,6 +29,8 @@ public class Main {
     public static void menu(Veterinary veterinary){
         Scanner scanner = new Scanner(System.in);
         int opcion = 0;
+
+        List<Pet> listPet = new ArrayList<>();
 
         System.out.println("\n" + "WELCOME TO THE VETERINARY SYSTEM");
         do {
@@ -50,12 +54,28 @@ public class Main {
                     break;
                 case 3:
                     deletePet(veterinary, scanner);
+
                     break;
                 case 4:
 
                     break;
                 case 5:
+                    String typePetSearch = menuType().toString();
+                    String listado = "";
 
+
+                    Iterator<Pet> it2 = listPet.iterator();
+                    Pet tmpAnalicer  = null;
+
+                    while(it2.hasNext()){
+                        listPet = (List<Pet>) it2.next();
+                        if (tmpAnalicer.getType().equals(typePetSearch)) {
+                            listado = listado + tmpAnalicer.toString();
+                        }
+
+                    }
+                    System.out.println(listado);
+                    submenuType();
                     break;
                 case 6:
                     System.out.println("Write the pet ID");
@@ -71,12 +91,6 @@ public class Main {
                 case 7:
                     System.exit(0);
                     break;
-
-                case 8:
-                default:
-                        opcion = 7;
-                        break;
-
             }
         }while (opcion != 7 );
     }
@@ -101,6 +115,48 @@ public class Main {
             System.out.println("Pet deleted");
         }else{
             System.out.println("ID not found");
+        }
+    }
+
+    //Menu for choice the type de pet a filter
+    public static String menuType(){
+        Scanner sc = new Scanner(System.in);
+        String type;
+        String message = "Choice a of the types show";
+        System.out.println("Choice a of our types");
+        do {
+            System.out.println("Types of Pet ");
+            System.out.println("1 .dog ");
+            System.out.println("2 .cat ");
+            System.out.println("3 .parrot ");
+            System.out.println("4 .go a menu ");
+            System.out.println(message);
+            System.out.print("Choice a option input dog or cat or parrot or go a menu\n");
+            type = sc.nextLine();
+            return type;
+        }while ( !type.equals("go a menu"));
+    }
+
+    //method for leave a menuType a menuStart o leave of the aplication Pet
+    public static void submenuType(){
+        Scanner sc = new Scanner(System.in);
+        String select = "";
+
+        System.out.println("\n");
+        System.out.println("You want to go back to the menu or exit the application");
+        System.out.println("yes. Go to menu");
+        System.out.println("not. Leave the app");
+        System.out.println("\n");
+        select = sc.nextLine();
+        if (select.toString().equals("yes")){
+            System.out.println("entro a s");
+        }else if (select.toString().equals("not")) {
+            System.out.println("entro a n");
+            System.exit(0);
+        }else{
+            System.out.println("\n");
+            System.out.println("value incorrect pleace input yes or not");
+            submenuType();
         }
     }
 }

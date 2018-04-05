@@ -2,23 +2,27 @@ package com.company;
 //Rodrigo Rivera
 //Luis Villarroel
 public abstract class Pet {
-    private String tipo;
+    private String type;
     private String color;
     private int age;
     private int id;
     private String name;
     private boolean show;
     //vanessa sanjinez
-    public Pet (String tipo, String color, int age,String name){
-        this.tipo = tipo;
+    public Pet (String type, String color, int age,String name){
+        this.type = type;
         this.age = age;
         this.color = color;
         //this.id = id;
         this.name = name;
     }
 
-    public String getTipo() {
-        return tipo;
+    public Pet(){
+
+    }
+
+    public String getType() {
+        return type;
     }
 
     public boolean getShow() {
@@ -29,8 +33,8 @@ public abstract class Pet {
          this.show = show;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getColor() {
@@ -63,7 +67,7 @@ public abstract class Pet {
 
     @Override
     public String toString() {
-        return "tipo: " + tipo + "\n" +
+        return "tipo: " + type + "\n" +
                 "color: " + color + "\n" +
                 "id: " + id + "\n" +
                 "age: " + age + "\n";
