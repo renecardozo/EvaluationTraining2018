@@ -22,7 +22,7 @@ public class Veterinary {
     }
     public void showAll (){
         for(int i =0 ; i< pets.size(); i++){
-            if(pets.get(i).getShow()) {
+            if(pets.get(i).getShow()) { 
                 System.out.println(pets.get(i));
             }
         }
