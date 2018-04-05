@@ -3,6 +3,7 @@
 //Mauricio Valdivieso
 //Mauricio Valdiviesod
 package com.company;
+import java.util.Scanner;
 
 import com.company.*;
 import java.lang.reflect.Method;
@@ -11,12 +12,12 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+
         Veterinary veterinary = new Veterinary();
-        //Pet cat = new Cat("Cat", "Black", "2");
         Pet cat = new Cat("Cat", "Black", 4, "cat");
         Pet dog = new Dog("Dog", "Black", 5, "dog");
         Pet parrot = new Parrot("Parrot", "Black", 6, "parrot");
+
         veterinary.add(cat);
         veterinary.add(dog);
         veterinary.add(parrot);
@@ -26,6 +27,7 @@ public class Main {
     public static void menu(Veterinary veterinary){
         Scanner scanner = new Scanner(System.in);
         int opcion = 0;
+
         System.out.println("\n" + "WELCOME TO THE VETERINARY SYSTEM");
         do {
             System.out.println("Enter the option you want");
@@ -36,8 +38,7 @@ public class Main {
             System.out.println("5 .Show animals by type");
             System.out.println("6 .Show reflection given an ID");
             System.out.println("7 .Exit");
-            //
-            //Scanner sc = new Scanner(System.in()()
+
             opcion = scanner.nextInt();
             scanner.nextLine();
             switch (opcion){
@@ -48,12 +49,13 @@ public class Main {
 
                     break;
                 case 3:
-
+                    deletePet(veterinary, scanner);
                     break;
                 case 4:
 
                     break;
                 case 5:
+
                     break;
                 case 6:
                     System.out.println("Write the pet ID");
@@ -67,7 +69,10 @@ public class Main {
                     }
                     break;
                 case 7:
+                    System.exit(0);
                     break;
+
+                case 8:
                 default:
                         opcion = 7;
                         break;
@@ -86,6 +91,16 @@ public class Main {
             }
         } catch (Exception ex) {
             ex.printStackTrace();
+        }
+    }
+
+    public static void deletePet(Veterinary veterinary, Scanner scanner){
+        System.out.println("Enter pet's ID: ");
+        int id = scanner.nextInt();
+        if(veterinary.remove(id)){
+            System.out.println("Pet deleted");
+        }else{
+            System.out.println("ID not found");
         }
     }
 }
