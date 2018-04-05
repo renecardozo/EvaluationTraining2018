@@ -26,19 +26,11 @@ public class Main {
         menu(veterinary);
     }
 
-<<<<<<< HEAD
     public static void menu(Veterinary veterinary) {
         Scanner scanner = new Scanner(System.in);
         int opcion = 0;
         String aux_r;
         System.out.println("\n" + "WELCOME TO THE VETERINARY SYSTEM");
-
-        do {
-=======
-    public static void menu(Veterinary veterinary){
-        int opcion = 0;
-        Scanner scanner = new Scanner(System.in);
->>>>>>> Add fufunction show all pets and modification in main
 
         do {
             System.out.println("Enter the option you want");
