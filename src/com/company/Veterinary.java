@@ -45,6 +45,7 @@ public class Veterinary {
             toModify.setColor(p.getColor());
             toModify.setTipo(p.getTipo());
             toModify.setName(p.getName());
+
         }
     }
 
@@ -57,7 +58,13 @@ public class Veterinary {
         }
     }*/
     public Pet search (int id){
-            return null;
+        for(Pet pet: pets){
+            if(pet.getId() == id )
+            {
+                return pet;
+            }
+        }
+        return null;
     }
   }
 
