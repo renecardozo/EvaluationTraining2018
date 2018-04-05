@@ -49,18 +49,17 @@ public class Veterinary {
             toModify.setColor(p.getColor());
             toModify.setTipo(p.getTipo());
             toModify.setName(p.getName());
+
         }
     }
 
-    public Pet search(int id) {
-        Pet p = null;
-        for(int i =0 ; i< pets.size(); i++){
-            if(pets.get(i).getId() == id)
-            {
-                p = pets.get(i);
+    public Pet search (int id) {
+        for(Pet pet: pets) {
+            if(pet.getId() == id ) {
+                return pet;
             }
         }
-        return p;
+        return null;
     }
 
     @Override
