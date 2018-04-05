@@ -29,9 +29,8 @@ public class Veterinary {
         }
     }
     public boolean remove(int id){
-        for(int i =0 ; i< pets.size(); i++){
-            if(pets.get(i).getId() == id )
-            {
+        for(int i = 0 ; i< pets.size(); i++){
+            if(pets.get(i).getId() == id ) {
                 pets.get(i).setShow(false);
                 return true;
             }
