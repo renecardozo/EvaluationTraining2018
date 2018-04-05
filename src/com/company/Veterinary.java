@@ -51,15 +51,46 @@ public class Veterinary {
         }
     }
 
+<<<<<<< HEAD
     public Pet search(int id) {
         Pet p = null;
+=======
+    public void ShowPetById(int id)
+    {
+        boolean exits = false;
+
+        for(int i =0 ; i< pets.size(); i++)
+        {
+            if(pets.get(i).getId() == id )
+            {
+                exits = true ;
+                System.out.print("Name:" + pets.get(i).getName());
+                System.out.print("Color:" + pets.get(i).getColor());
+                System.out.print("Age:" + pets.get(i).getAge());
+                System.out.print("Tipo:" + pets.get(i).getTipo());
+            }
+        }
+        if(exits = false) {
+            System.out.println("The Pet does not exist");
+        }
+    }
+
+
+
+    public Pet search(int id) {
+
+>>>>>>> add feature ShowById
         for(int i =0 ; i< pets.size(); i++){
             if(pets.get(i).getId() == id)
             {
                 p = pets.get(i);
             }
         }
+<<<<<<< HEAD
         return p;
+=======
+        return null;
+>>>>>>> add feature ShowById
     }
 
     public List<Pet> getList(){
