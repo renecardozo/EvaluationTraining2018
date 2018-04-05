@@ -1,5 +1,7 @@
-*.xml
 
+*.xml
 *.vml
 
+# Ignoring all folder from IDE
 .idea/
+ out/
