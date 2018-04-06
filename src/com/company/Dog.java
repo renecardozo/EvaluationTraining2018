@@ -12,7 +12,7 @@ public class Dog extends Pet {
 
     @Override
     public void sound(){
-        System.out.println(PetEnum.DOG.getAnimalSound());
+        System.out.println("Wow");
     }
 
     @Override
