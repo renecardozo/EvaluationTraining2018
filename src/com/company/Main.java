@@ -115,7 +115,7 @@ public class Main {
     }
 
     private static void showUpdateMenu(Veterinary veterinary, Scanner scanner) {
-        String color, name, choice, updatedColor, updatedName;
+        String color, name, updatedColor, updatedName;
         int age, updatedAge;
 
         System.out.println("Update pets\n");
@@ -156,8 +156,10 @@ public class Main {
                     break;
                 case "Dog":
                     veterinary.updatePet(id, new Dog(updatedPet.getTipo(), color, age, name));
+                    break;
                 case "Parrot":
                     veterinary.updatePet(id, new Parrot(updatedPet.getTipo(), color, age, name));
+                    break;
             }
 
             System.out.println("Your animal has been successfully saved!");
