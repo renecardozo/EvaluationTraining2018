@@ -79,7 +79,7 @@ public class Veterinary {
                 p = pets.get(i);
             }
         }
-        return p;
+        return null;
     }
 
     public List<Pet> getList(){
