@@ -17,7 +17,6 @@ public class Veterinary {
     }
 
     public void add (Pet p){
-        //p.setId(idactual);
         p.setId(idactual);
         pets.add(p);
         idactual++;
@@ -25,7 +24,7 @@ public class Veterinary {
 
     public void showAll (){
         for(int i =0 ; i< pets.size(); i++){
-            if(pets.get(i).getShow()) {
+            if(pets.get(i).getShow()) { 
                 System.out.println(pets.get(i));
             }
         }
@@ -47,7 +46,7 @@ public class Veterinary {
         if(toModify != null){
             toModify.setAge(p.getAge());
             toModify.setColor(p.getColor());
-            toModify.setTipo(p.getTipo());
+            toModify.setType(p.getType());
             toModify.setName(p.getName());
         }
     }
@@ -61,6 +60,10 @@ public class Veterinary {
             }
         }
         return p;
+    }
+
+    public List<Pet> getList(){
+        return pets;
     }
 
     @Override

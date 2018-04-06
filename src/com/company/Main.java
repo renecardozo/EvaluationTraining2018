@@ -3,13 +3,15 @@
 //Mauricio Valdivieso
 //Mauricio Valdiviesod
 package com.company;
-import java.util.Scanner;
 
 import com.company.*;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.List;
+import java.util.ArrayList;
+import java.io.*;
 
 public class Main {
 
@@ -29,7 +31,11 @@ public class Main {
     public static void menu(Veterinary veterinary) {
         Scanner scanner = new Scanner(System.in);
         int opcion = 0;
+
+        List<Pet> listPet = new ArrayList<>();
+
         String aux_r;
+
         System.out.println("\n" + "WELCOME TO THE VETERINARY SYSTEM");
 
         do {
@@ -79,6 +85,7 @@ public class Main {
                     break;
                 case 3:
                     deletePet(veterinary, scanner);
+
                     break;
                 case 4:
 
@@ -90,7 +97,18 @@ public class Main {
 
                     break;
                 case 5:
+                    String typePetSearch = menuType().toString();
+                    String listado = "";
 
+                    System.out.println(typePetSearch);
+
+                    for(Pet pet: veterinary.getList()) {
+                        if (pet.getType().equals(typePetSearch)) {
+                            System.out.println(pet);
+                        }
+                    }
+
+                    submenuType();
                     break;
                 case 6:
                     System.out.println("Write the pet ID");
@@ -270,14 +288,46 @@ public class Main {
         }
     }
 
-    private static void showPrincipalMenu() {
-        System.out.println("Welcome to the veterinary");
-        System.out.println("Enter the option ");
-        System.out.println("1 .Register ");
-        System.out.println("2 .Update ");
-        System.out.println("3 .Show ");
-        System.out.println("4 .Delete ");
-        System.out.println("5 .Show all");
-        System.out.println("6 .Quit");
+    //Menu for choice the type de pet a filter
+    public static String menuType(){
+        Scanner sc = new Scanner(System.in);
+        String type;
+        String message = "Choice a of the types show";
+        System.out.println("Choice a of our types");
+        do {
+            System.out.println("Types of Pet ");
+            System.out.println("1 .Dog ");
+            System.out.println("2 .Cat ");
+            System.out.println("3 .Parrot ");
+            System.out.println("4 .go a menu ");
+            System.out.println(message);
+            System.out.print("Choice a option input Dog or Cat or Parrot or go a menu\n");
+            type = sc.nextLine();
+            return type;
+        }while ( !type.equals("go a menu"));
+    }
+
+    //method for leave a menuType a menuStart o leave of the aplication Pet
+    public static void submenuType(){
+        Scanner sc = new Scanner(System.in);
+        String select = "";
+
+        System.out.println("\n");
+        System.out.println("You want to go back to the menu or exit the application");
+        System.out.println("yes. Go to menu");
+        System.out.println("not. Leave the app");
+        System.out.println("\n");
+        select = sc.nextLine();
+        if (select.toString().equals("yes")){
+            System.out.println("entro a s");
+        }else if (select.toString().equals("not")) {
+            System.out.println("entro a n");
+            System.exit(0);
+        }else{
+            System.out.println("\n");
+            System.out.println("value incorrect pleace input yes or not");
+            submenuType();
+        }
+
     }
 }

@@ -18,6 +18,6 @@ public class Dog extends Pet {
     @Override
     public String toString(){
         return super.toString()+
-                "tipo" + super.getTipo() +"\n";
+                "tipo" + super.getType() +"\n";
     }
 }
