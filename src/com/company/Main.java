@@ -7,9 +7,9 @@ package com.company;
 import com.company.*;
 import java.lang.reflect.Method;
 import java.util.Scanner;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+import java.util.ArrayList;
+import java.io.*;
 
 public class Main {
 
@@ -63,18 +63,14 @@ public class Main {
                     String typePetSearch = menuType().toString();
                     String listado = "";
 
+                    System.out.println(typePetSearch);
 
-                    Iterator<Pet> it2 = listPet.iterator();
-                    Pet tmpAnalicer  = null;
-
-                    while(it2.hasNext()){
-                        listPet = (List<Pet>) it2.next();
-                        if (tmpAnalicer.getType().equals(typePetSearch)) {
-                            listado = listado + tmpAnalicer.toString();
+                    for(Pet pet: veterinary.getList()) {
+                        if (pet.getType().equals(typePetSearch)) {
+                            System.out.println(pet);
                         }
-
                     }
-                    System.out.println(listado);
+
                     submenuType();
                     break;
                 case 6:
@@ -126,12 +122,12 @@ public class Main {
         System.out.println("Choice a of our types");
         do {
             System.out.println("Types of Pet ");
-            System.out.println("1 .dog ");
-            System.out.println("2 .cat ");
-            System.out.println("3 .parrot ");
+            System.out.println("1 .Dog ");
+            System.out.println("2 .Cat ");
+            System.out.println("3 .Parrot ");
             System.out.println("4 .go a menu ");
             System.out.println(message);
-            System.out.print("Choice a option input dog or cat or parrot or go a menu\n");
+            System.out.print("Choice a option input Dog or Cat or Parrot or go a menu\n");
             type = sc.nextLine();
             return type;
         }while ( !type.equals("go a menu"));
