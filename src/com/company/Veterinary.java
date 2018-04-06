@@ -49,20 +49,15 @@ public class Veterinary {
             toModify.setType(p.getType());
             toModify.setName(p.getName());
         }
+
     }
 
-<<<<<<< HEAD
-    public Pet search(int id) {
-        Pet p = null;
-=======
-    public void ShowPetById(int id)
-    {
+
+    public void ShowPetById(int id) {
         boolean exits = false;
 
-        for(int i =0 ; i< pets.size(); i++)
-        {
-            if(pets.get(i).getId() == id )
-            {
+        for(int i =0 ; i< pets.size(); i++) {
+            if(pets.get(i).getId() == id ) {
                 exits = true ;
                 System.out.print("Name:" + pets.get(i).getName());
                 System.out.print("Color:" + pets.get(i).getColor());
@@ -78,19 +73,13 @@ public class Veterinary {
 
 
     public Pet search(int id) {
-
->>>>>>> add feature ShowById
-        for(int i =0 ; i< pets.size(); i++){
+        for(int i =0 ; i< pets.size(); i++) {
             if(pets.get(i).getId() == id)
             {
                 p = pets.get(i);
             }
         }
-<<<<<<< HEAD
         return p;
-=======
-        return null;
->>>>>>> add feature ShowById
     }
 
     public List<Pet> getList(){
