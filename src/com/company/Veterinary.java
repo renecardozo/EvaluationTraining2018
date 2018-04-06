@@ -53,7 +53,6 @@ public class Veterinary {
     }
 
     public Pet search(int id) {
-        System.out.println("The id received: " + id);
         Pet p = null;
         for(int i =0 ; i< pets.size(); i++){
             if(pets.get(i).getId() == id)
@@ -61,7 +60,6 @@ public class Veterinary {
                 p = pets.get(i);
             }
         }
-        System.out.println(p);
         return p;
     }
 
