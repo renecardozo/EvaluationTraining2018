@@ -11,6 +11,7 @@ import java.util.List;
 public class Veterinary {
     int idactual= 0;
     List<Pet> pets;
+    
     public Veterinary(){
         pets = new ArrayList<>();
     }
@@ -20,6 +21,7 @@ public class Veterinary {
         pets.add(p);
         idactual++;
     }
+
     public void showAll (){
         for(int i =0 ; i< pets.size(); i++){
             if(pets.get(i).getShow()) { 
@@ -27,6 +29,7 @@ public class Veterinary {
             }
         }
     }
+
     public boolean remove(int id){
         for(int i = 0 ; i< pets.size(); i++){
             if(pets.get(i).getId() == id ) {
@@ -36,6 +39,7 @@ public class Veterinary {
         }
         return false;
     }
+
     public void updatePet(int i, Pet p){
         Pet toModify;
         toModify = search(i);
@@ -47,20 +51,23 @@ public class Veterinary {
         }
     }
 
-    /*public void search(int id) {
+    public Pet search(int id) {
+        Pet p = null;
         for(int i =0 ; i< pets.size(); i++){
-            if(pets.get(i).getId() == id && pets.get(i).getShow())
+            if(pets.get(i).getId() == id)
             {
-                pets.get(i).setShow(false);
+                p = pets.get(i);
             }
         }
-    }*/
-    public Pet search (int id){
-            return null;
+        return p;
     }
 
     public List<Pet> getList(){
         return pets;
     }
 
+    @Override
+    public String toString(){
+        return pets.toString();
+    }
 }

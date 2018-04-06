@@ -13,8 +13,8 @@ public abstract class Pet {
         this.type = type;
         this.age = age;
         this.color = color;
-        //this.id = id;
         this.name = name;
+        this.show = true;
     }
 
     public Pet(){
@@ -70,7 +70,8 @@ public abstract class Pet {
         return "tipo: " + type + "\n" +
                 "color: " + color + "\n" +
                 "id: " + id + "\n" +
-                "age: " + age + "\n";
+                "age: " + age + "\n" +
+                "name: " + name + "\n";
     }
 
     public abstract void sound();
