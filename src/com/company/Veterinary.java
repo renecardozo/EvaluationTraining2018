@@ -72,12 +72,9 @@ public class Veterinary {
 
 
     public Pet search(int id) {
-
-        for(int i =0 ; i< pets.size(); i++) {
-            if(pets.get(i).getId() == id)
-            {
-                p = pets.get(i);
-                return p;
+        for(Pet pet: pets){
+            if(pet.getId() == id) {
+                return pet;
             }
         }
         return null;
