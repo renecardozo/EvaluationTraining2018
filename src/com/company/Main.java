@@ -79,8 +79,9 @@ public class Main {
     }
 
     private static void showUpdateMenu(Veterinary veterinary, Scanner scanner) {
-        String color, name, choice;
-        int age;
+        String color, name, choice, updatedColor, updatedName;
+        int age, updatedAge;
+
         System.out.println("Update pets\n");
         System.out.println("Enter an id to update your animal data");
         int id = scanner.nextInt();
@@ -99,44 +100,18 @@ public class Main {
             System.out.println("Your current pet data is showed below: \n");
             System.out.println(updatedPet);
 
-            System.out.println("Do you want to change your pet name?");
-            System.out.println("Y / N");
+            updatedName = verifyChangeStringMenu("name", scanner);
+            updatedColor = verifyChangeStringMenu("color", scanner);
+            updatedAge = verifyChangeIntMenu("age", scanner);
 
-            choice = scanner.nextLine();
-            while (!choice.equals("Y") && !choice.equals("N")) {
-                System.out.println("Invalid option...");
-                choice = scanner.nextLine();
+            if(updatedName != null){
+                name = updatedName;
             }
-            if (choice.equals("Y")) {
-                System.out.println("Enter a new name:");
-                name = scanner.nextLine();
+            if(updatedColor != null){
+                color = updatedColor;
             }
-
-            System.out.println("Do you want to change your pet color?");
-            System.out.println("Y / N");
-
-            choice = scanner.nextLine();
-            while (!choice.equals("Y") && !choice.equals("N")) {
-                System.out.println("Invalid option...");
-                choice = scanner.nextLine();
-            }
-            if (choice.equals("Y")) {
-                System.out.println("Enter a new color:");
-                color = scanner.nextLine();
-            }
-
-            System.out.println("Do you want to change your pet age?");
-            System.out.println("Y / N");
-
-            choice = scanner.nextLine();
-            while (!choice.equals("Y") && !choice.equals("N")) {
-                System.out.println("Invalid option...");
-                choice = scanner.nextLine();
-            }
-            if (choice.equals("Y")) {
-                System.out.println("Enter a new age:");
-                age = scanner.nextInt();
-                scanner.nextLine();
+            if(updatedAge != -1){
+                age = updatedAge;
             }
 
             switch (updatedPet.getTipo()) {
@@ -150,10 +125,49 @@ public class Main {
             }
 
             System.out.println("Your animal has been successfully saved!");
+            System.out.println(veterinary.search(id));
             System.out.println("Enter a key to continue...");
             scanner.nextLine();
         }
-        System.out.println(veterinary);
+    }
+
+    private static int verifyChangeIntMenu(String string, Scanner scanner) {
+        int value = -1;
+        String choice;
+        System.out.println("Do you want to change your pet " + string +"?");
+        System.out.println("Y / N");
+
+        choice = scanner.nextLine();
+        while (!choice.equals("Y") && !choice.equals("N")) {
+            System.out.println("Invalid option...");
+            System.out.println("Please enter: Y / N");
+            choice = scanner.nextLine();
+        }
+        if (choice.equals("Y")) {
+            System.out.println("Enter a new " + string + ":");
+            value = scanner.nextInt();
+            scanner.nextLine();
+        }
+        return value;
+    }
+
+    private static String verifyChangeStringMenu(String string, Scanner scanner) {
+        String value = null;
+        String choice;
+        System.out.println("Do you want to change your pet " + string +"?");
+        System.out.println("Y / N");
+
+        choice = scanner.nextLine();
+        while (!choice.equals("Y") && !choice.equals("N")) {
+            System.out.println("Invalid option...");
+            System.out.println("Please enter: Y / N");
+            choice = scanner.nextLine();
+        }
+        if (choice.equals("Y")) {
+            System.out.println("Enter a new " + string + ":");
+            value = scanner.nextLine();
+        }
+        return value;
     }
 
     public static void petMethods(Class<?> petClass) {
