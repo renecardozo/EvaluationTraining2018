@@ -45,7 +45,7 @@ public class Main {
             scanner.nextLine();
             switch (opcion){
                 case 1:
-                    System.out.println("-------------REGISTER NEW ANIMOL-----------");
+                    System.out.println("-------------REGISTER NEW ANIMAL-----------");
                     System.out.println("Enter the type of animal");
                     aux_r=scanner.nextLine();
                     int ex=verify(aux_r);
