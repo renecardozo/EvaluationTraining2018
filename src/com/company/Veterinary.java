@@ -16,7 +16,6 @@ public class Veterinary {
     }
 
     public void add (Pet p){
-        //p.setId(idactual);
         p.setId(idactual);
         pets.add(p);
         idactual++;
@@ -49,14 +48,7 @@ public class Veterinary {
         }
     }
 
-    /*public void search(int id) {
-        for(int i =0 ; i< pets.size(); i++){
-            if(pets.get(i).getId() == id && pets.get(i).getShow())
-            {
-                pets.get(i).setShow(false);
-            }
-        }
-    }*/
+
     public Pet search (int id){
         for(Pet pet: pets){
             if(pet.getId() == id )
