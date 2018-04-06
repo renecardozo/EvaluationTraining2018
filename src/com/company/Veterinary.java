@@ -17,7 +17,6 @@ public class Veterinary {
     }
 
     public void add (Pet p){
-        //p.setId(idactual);
         p.setId(idactual);
         pets.add(p);
         idactual++;
