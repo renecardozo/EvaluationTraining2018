@@ -13,7 +13,7 @@ public class Parrot extends Pet {
 
     @Override
     public void sound(){
-        System.out.println("hello world");
+        System.out.println(PetEnum.PARROT.getAnimalSound());
     }
 
     @Override
