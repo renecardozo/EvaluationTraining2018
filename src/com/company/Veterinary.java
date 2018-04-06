@@ -71,12 +71,13 @@ public class Veterinary {
     }
 
 
-
     public Pet search(int id) {
+
         for(int i =0 ; i< pets.size(); i++) {
             if(pets.get(i).getId() == id)
             {
                 p = pets.get(i);
+                return p;
             }
         }
         return null;
