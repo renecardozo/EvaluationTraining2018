@@ -15,6 +15,7 @@ public abstract class Pet {
         this.color = color;
         //this.id = id;
         this.name = name;
+        this.show = true;
     }
 
     public String getTipo() {
@@ -66,7 +67,8 @@ public abstract class Pet {
         return "tipo: " + tipo + "\n" +
                 "color: " + color + "\n" +
                 "id: " + id + "\n" +
-                "age: " + age + "\n";
+                "age: " + age + "\n" +
+                "name: " + name + "\n";
     }
 
     public abstract void sound();
