@@ -13,7 +13,6 @@ public abstract class Pet {
         this.tipo = tipo;
         this.age = age;
         this.color = color;
-        //this.id = id;
         this.name = name;
         this.show = true;
     }

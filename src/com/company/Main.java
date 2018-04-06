@@ -82,6 +82,12 @@ public class Main {
                     break;
                 case 4:
 
+                    System.out.println("The full list of Pets is:");
+                    System.out.println();
+                    veterinary.showAllPets();
+                    System.out.println();
+
+
                     break;
                 case 5:
 
