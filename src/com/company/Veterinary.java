@@ -32,7 +32,7 @@ public class Veterinary {
 
     public boolean remove(int id){
         for(int i = 0 ; i< pets.size(); i++){
-            if(pets.get(i).getId() == id ) {
+            if(pets.get(i).getId() == id && pets.get(i).getShow()) {
                 pets.get(i).setShow(false);
                 return true;
             }
@@ -64,7 +64,6 @@ public class Veterinary {
             System.out.println("The Pet does not exist");
         }
     }
-
 
     public Pet search(int id) {
         for(Pet pet: pets){

@@ -15,11 +15,8 @@ import java.io.*;
 
 public class Main {
 
-
     public static void main(String[] args) {
         Veterinary veterinary = new Veterinary();
-
-        //Pet cat = new Cat("Cat", "Black", "2");
         Pet dog = new Dog("Dog", "Brown", 8, "dog");
         dog.setId(4);
         Pet cat = new Cat("Cat", "Blue", 5, "cat");
@@ -40,15 +37,11 @@ public class Main {
         veterinary.add(catNew);
         veterinary.add(parrotNew);
         menu(veterinary);
-
     }
 
     public static void menu(Veterinary veterinary) {
         Scanner scanner = new Scanner(System.in);
         int opcion = 0;
-
-        List<Pet> listPet = new ArrayList<>();
-
         String aux_r;
 
         System.out.println("\n" + "WELCOME TO THE VETERINARY SYSTEM");
@@ -68,13 +61,12 @@ public class Main {
 
             int id;
             switch (opcion){
-
                 case 1:
                     System.out.println("-------------REGISTER NEW ANIMAL-----------");
                     System.out.println("Enter the type of animal");
-                    aux_r=scanner.nextLine();
-                    int ex=verify(aux_r);
-                    if(ex==0){
+                    aux_r = scanner.nextLine();
+                    int ex = verify(aux_r);
+                    if(ex == 0){
                         break;
                     }
                     ArrayList <String> datos=new ArrayList<String>();
@@ -114,8 +106,6 @@ public class Main {
                     break;
                 case 5:
                     String typePetSearch = menuType().toString();
-                    String listado = "";
-
                     System.out.println(typePetSearch);
 
                     for(Pet pet: veterinary.getList()) {
@@ -129,7 +119,7 @@ public class Main {
                     System.out.println("Write the pet ID");
                     id = scanner.nextInt();
                     Pet pet = veterinary.search(id);
-                    if (pet != null) {
+                    if (pet != null && pet.getShow()) {
                         Class<?> petClass = pet.getClass();
                         petMethods(petClass);
                     } else {
@@ -157,7 +147,7 @@ public class Main {
         scanner.nextLine();
 
         Pet updatedPet = veterinary.search(id);
-        if (updatedPet == null) {
+        if (updatedPet == null || !updatedPet.getShow()) {
             System.out.println("The pet with id: " + id + " has not been found");
             System.out.println("Enter a key to continue...");
             scanner.nextLine();
@@ -194,7 +184,6 @@ public class Main {
                     veterinary.updatePet(id, new Parrot(updatedPet.getType(), color, age, name));
                     break;
             }
-
             System.out.println("Your animal has been successfully saved!");
             System.out.println(veterinary.search(id));
             System.out.println("Enter a key to continue...");
@@ -241,7 +230,6 @@ public class Main {
         return value;
     }
 
-
     public static void petMethods(Class<?> petClass) {
         try {
             Method[] methods = petClass.getMethods();
@@ -260,31 +248,32 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         ArrayList<String> datos= new ArrayList<String>();
         System.out.println("Enter the color of the pet");
-        aux=sc.nextLine();
+        aux = sc.nextLine();
         datos.add(aux);
         System.out.println("Enter the age of the pet");
-        aux=sc.nextLine();
+        aux = sc.nextLine();
         datos.add(aux);
         System.out.println("Enter the name of the pet");
-        aux=sc.nextLine();
+        aux = sc.nextLine();
         datos.add(aux);
         return datos;
     }
+
     public static int verify(String animal){
         boolean exits;
         int pet;
         if(animal.toUpperCase().equals("DOG")){
-            exits= true;
-            pet=1;
+            exits = true;
+            pet = 1;
         }else if(animal.toUpperCase().equals("CAT")){
-            exits= true;
-            pet=2;
+            exits = true;
+            pet = 2;
         }else if (animal.toUpperCase().equals("PARROT")){
-            exits= true;
-            pet=3;
+            exits = true;
+            pet = 3;
         } else{
-            exits= false;
-            pet=0;
+            exits = false;
+            pet = 0;
         }
         if(exits){
             System.out.println("    *** Right animal!!!. There is the selected animal ***\n");
@@ -293,6 +282,7 @@ public class Main {
         }
         return pet;
     }
+
     public static void deletePet(Veterinary veterinary, Scanner scanner){
         System.out.println("Enter pet's ID: ");
         int id = scanner.nextInt();
@@ -319,7 +309,7 @@ public class Main {
             System.out.print("Choice a option input Dog or Cat or Parrot or go a menu\n");
             type = sc.nextLine();
             return type;
-        }while ( !type.equals("go a menu"));
+        } while (!type.equals("go a menu"));
     }
 
     //method for leave a menuType a menuStart o leave of the aplication Pet
@@ -343,6 +333,5 @@ public class Main {
             System.out.println("value incorrect pleace input yes or not");
             submenuType();
         }
-
     }
 }
