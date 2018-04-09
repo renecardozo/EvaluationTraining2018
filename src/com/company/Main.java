@@ -14,8 +14,9 @@ import java.util.ArrayList;
 import java.io.*;
 
 public class Main {
-
+   static Validator v;
     public static void main(String[] args) {
+        v = new Validator();
         Veterinary veterinary = new Veterinary();
         Pet dog = new Dog("Dog", "Brown", 8, "dog");
         dog.setId(4);
@@ -71,24 +72,29 @@ public class Main {
                     }
                     ArrayList <String> datos=new ArrayList<String>();
                     datos=getDatos();
-                    switch (ex){
-                        case 1:
-                            Pet pet1 =  new Dog("Dog",datos.get(0),Integer.parseInt(datos.get(1)),datos.get(2));
-                            veterinary.add(pet1);
-                            System.out.println("    *** Successful registration !!! ***");
-                            break;
-                        case 2:
-                            Pet pet2 =  new Cat("Cat",datos.get(0),Integer.parseInt(datos.get(1)),datos.get(2));
-                            veterinary.add(pet2);
-                            System.out.println("    *** Successful registration !!! ***");
-                            break;
-                        case 3:
-                            Pet pet3 =  new Parrot("Parrot",datos.get(0),Integer.parseInt(datos.get(1)),datos.get(2));
-                            veterinary.add(pet3);
-                            System.out.println("    *** Successful registration !!! ***");
-                            break;
+                    if(datos == null){
+                        System.out.println("Invalid input\n");
+                    }else {
+                        switch (ex) {
+                            case 1:
+                                Pet pet1 = new Dog("Dog", datos.get(0), Integer.parseInt(datos.get(1)), datos.get(2));
+                                veterinary.add(pet1);
+                                System.out.println("    *** Successful registration !!! ***");
+                                break;
+                            case 2:
+                                Pet pet2 = new Cat("Cat", datos.get(0), Integer.parseInt(datos.get(1)), datos.get(2));
+                                veterinary.add(pet2);
+                                System.out.println("    *** Successful registration !!! ***");
+                                break;
+                            case 3:
+                                Pet pet3 = new Parrot("Parrot", datos.get(0), Integer.parseInt(datos.get(1)), datos.get(2));
+                                veterinary.add(pet3);
+                                System.out.println("    *** Successful registration !!! ***");
+                                break;
+                        }
+                        System.out.println("Returning to main menu...");
+                        System.out.println();
                     }
-                    System.out.println("");
                     break;
                 case 2:
                     System.out.println("Write the pet ID");
@@ -245,16 +251,32 @@ public class Main {
 
     public static ArrayList<String> getDatos(){
         String aux ;
+        ValidationResponses response;
         Scanner sc = new Scanner(System.in);
         ArrayList<String> datos= new ArrayList<String>();
         System.out.println("Enter the color of the pet");
         aux = sc.nextLine();
+        response = v.Validate(aux);
+        if(! (response == ValidationResponses.OK)){
+            System.out.println(response.getMessage());
+            return null;
+        }
         datos.add(aux);
         System.out.println("Enter the age of the pet");
         aux = sc.nextLine();
+        response = v.isNumber(aux);
+        if(! (response == ValidationResponses.OK)){
+            System.out.println(response.getMessage());
+            return null;
+        }
         datos.add(aux);
         System.out.println("Enter the name of the pet");
         aux = sc.nextLine();
+        response = v.Validate(aux);
+        if(! (response == ValidationResponses.OK)){
+            System.out.println(response.getMessage());
+            return null;
+        }
         datos.add(aux);
         return datos;
     }
