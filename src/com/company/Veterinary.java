@@ -62,7 +62,7 @@ public class Veterinary {
                 System.out.print("Name:" + pets.get(i).getName());
                 System.out.print("Color:" + pets.get(i).getColor());
                 System.out.print("Age:" + pets.get(i).getAge());
-                System.out.print("Tipo:" + pets.get(i).getTipo());
+                System.out.print("Tipo:" + pets.get(i).getType());
             }
         }
         if(exits = false) {
@@ -72,12 +72,9 @@ public class Veterinary {
 
 
     public Pet search(int id) {
-
-        for(int i =0 ; i< pets.size(); i++) {
-            if(pets.get(i).getId() == id)
-            {
-                p = pets.get(i);
-                return p;
+        for(Pet pet: pets){
+            if(pet.getId() == id) {
+                return pet;
             }
         }
         return null;

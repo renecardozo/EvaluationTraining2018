@@ -115,7 +115,7 @@ public class Main {
 
                     System.out.println("The full list of Pets is:");
                     System.out.println();
-                    veterinary.showAllPets();
+                    veterinary.showAll();
                     System.out.println();
 
 
@@ -192,15 +192,15 @@ public class Main {
                 age = updatedAge;
             }
 
-            switch (updatedPet.getTipo()) {
+            switch (updatedPet.getType()) {
                 case "Cat":
-                    veterinary.updatePet(id, new Cat(updatedPet.getTipo(), color, age, name));
+                    veterinary.updatePet(id, new Cat(updatedPet.getType(), color, age, name));
                     break;
                 case "Dog":
-                    veterinary.updatePet(id, new Dog(updatedPet.getTipo(), color, age, name));
+                    veterinary.updatePet(id, new Dog(updatedPet.getType(), color, age, name));
                     break;
                 case "Parrot":
-                    veterinary.updatePet(id, new Parrot(updatedPet.getTipo(), color, age, name));
+                    veterinary.updatePet(id, new Parrot(updatedPet.getType(), color, age, name));
                     break;
             }
 
