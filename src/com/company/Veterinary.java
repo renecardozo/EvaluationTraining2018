@@ -32,7 +32,7 @@ public class Veterinary {
 
     public boolean remove(int id){
         for(int i = 0 ; i< pets.size(); i++){
-            if(pets.get(i).getId() == id ) {
+            if(pets.get(i).getId() == id && pets.get(i).getShow()) {
                 pets.get(i).setShow(false);
                 return true;
             }
@@ -49,9 +49,7 @@ public class Veterinary {
             toModify.setType(p.getType());
             toModify.setName(p.getName());
         }
-
     }
-
 
     public void ShowPetById(int id) {
         boolean exits = false;
@@ -59,17 +57,13 @@ public class Veterinary {
         for(int i =0 ; i< pets.size(); i++) {
             if(pets.get(i).getId() == id ) {
                 exits = true ;
-                System.out.print("Name:" + pets.get(i).getName());
-                System.out.print("Color:" + pets.get(i).getColor());
-                System.out.print("Age:" + pets.get(i).getAge());
-                System.out.print("Tipo:" + pets.get(i).getType());
+                System.out.println(pets.get(i));
             }
         }
         if(exits = false) {
             System.out.println("The Pet does not exist");
         }
     }
-
 
     public Pet search(int id) {
         for(Pet pet: pets){

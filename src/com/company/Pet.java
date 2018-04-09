@@ -67,8 +67,8 @@ public abstract class Pet {
 
     @Override
     public String toString() {
-        return "tipo: " + type + "\n" +
-                "color: " + color + "\n" +
+        sound();
+        return  "color: " + color + "\n" +
                 "id: " + id + "\n" +
                 "age: " + age + "\n" +
                 "name: " + name + "\n";

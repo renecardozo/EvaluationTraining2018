@@ -6,20 +6,18 @@ package com.company;
 //mayra hidalgo
 public class Parrot extends Pet {
 
-    public Parrot(String tipo, String color, int age,String name){
+    public Parrot(String tipo, String color, int age,String name) {
         super("Parrot", color, age, name);
-
     }
 
     @Override
-    public void sound(){
+    public void sound() {
         System.out.println(PetEnum.PARROT.getAnimalSound());
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return super.toString()+
-                "tipo" + super.getType() +"\n";
+                "type: " + super.getType() +"\n";
     }
-
 }
