@@ -55,10 +55,10 @@ public class Veterinary {
         for(int i =0 ; i< pets.size(); i++) {
             if(pets.get(i).getId() == id && pets.get(i).getShow()) {
                 System.out.println(pets.get(i));
-                return;
+                break;
             } else {
                 System.out.println("The Pet does not exist");
-                return; 
+                break;
             }
         }
     }
