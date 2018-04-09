@@ -93,7 +93,7 @@ public class Main {
                 case 2:
                     System.out.println("Write the pet ID");
                     id = scanner.nextInt();
-                    veterinary.ShowPetById(id);
+                    veterinary.showPetById(id);
                     break;
                 case 3:
                     deletePet(veterinary, scanner);
