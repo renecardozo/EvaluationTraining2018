@@ -107,13 +107,10 @@ public class Main {
                     deletePet(veterinary, scanner);
                     break;
                 case 4:
-
                     System.out.println("The full list of Pets is:");
                     System.out.println();
                     veterinary.showAll();
                     System.out.println();
-
-
                     break;
                 case 5:
                     String typePetSearch = menuType().toString();
@@ -122,7 +119,7 @@ public class Main {
                     System.out.println(typePetSearch);
 
                     for(Pet pet: veterinary.getList()) {
-                        if (pet.getType().equals(typePetSearch)) {
+                        if (pet.getType().equals(typePetSearch) && pet.getShow()) {
                             System.out.println(pet);
                         }
                     }
