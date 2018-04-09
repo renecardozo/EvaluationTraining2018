@@ -49,9 +49,7 @@ public class Veterinary {
             toModify.setType(p.getType());
             toModify.setName(p.getName());
         }
-
     }
-
 
     public void ShowPetById(int id) {
         boolean exits = false;
@@ -59,10 +57,7 @@ public class Veterinary {
         for(int i =0 ; i< pets.size(); i++) {
             if(pets.get(i).getId() == id ) {
                 exits = true ;
-                System.out.print("Name:" + pets.get(i).getName());
-                System.out.print("Color:" + pets.get(i).getColor());
-                System.out.print("Age:" + pets.get(i).getAge());
-                System.out.print("Tipo:" + pets.get(i).getType());
+                System.out.println(pets.get(i));
             }
         }
         if(exits = false) {

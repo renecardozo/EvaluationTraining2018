@@ -19,7 +19,6 @@ public class Parrot extends Pet {
     @Override
     public String toString(){
         return super.toString()+
-                "tipo" + super.getType() +"\n";
+                "type: " + super.getType() +"\n";
     }
-
 }

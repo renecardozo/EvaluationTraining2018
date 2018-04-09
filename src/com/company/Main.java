@@ -97,19 +97,14 @@ public class Main {
                             break;
                     }
                     System.out.println("");
-
                     break;
                 case 2:
-
-                            String input = System.console().readLine();
-                            id = Integer.parseInt(input);
-                            veterinary.ShowPetById(id);
-
-
+                    System.out.println("Write the pet ID");
+                    id = scanner.nextInt();
+                    veterinary.ShowPetById(id);
                     break;
                 case 3:
                     deletePet(veterinary, scanner);
-
                     break;
                 case 4:
 
@@ -131,7 +126,6 @@ public class Main {
                             System.out.println(pet);
                         }
                     }
-
                     submenuType();
                     break;
                 case 6:
