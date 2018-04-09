@@ -52,16 +52,14 @@ public class Veterinary {
     }
 
     public void ShowPetById(int id) {
-        boolean exits = false;
-
         for(int i =0 ; i< pets.size(); i++) {
-            if(pets.get(i).getId() == id ) {
-                exits = true ;
+            if(pets.get(i).getId() == id && pets.get(i).getShow()) {
                 System.out.println(pets.get(i));
+                return;
+            } else {
+                System.out.println("The Pet does not exist");
+                return; 
             }
-        }
-        if(exits = false) {
-            System.out.println("The Pet does not exist");
         }
     }
 
