@@ -18,14 +18,29 @@ public class Main {
 
     public static void main(String[] args) {
         Veterinary veterinary = new Veterinary();
-        Pet cat = new Cat("Cat", "Black", 4, "cat");
-        Pet dog = new Dog("Dog", "Black", 5, "dog");
-        Pet parrot = new Parrot("Parrot", "Black", 6, "parrot");
 
-        veterinary.add(cat);
+        //Pet cat = new Cat("Cat", "Black", "2");
+        Pet dog = new Dog("Dog", "Brown", 8, "dog");
+        dog.setId(4);
+        Pet cat = new Cat("Cat", "Blue", 5, "cat");
+        cat.setId(8);
+        Pet parrot = new Parrot("Parrot", "White", 7, "parrot");
+        parrot.setId(6);
+        Pet dogNew = new Dog("Dog", "Black", 3, "dogNew");
+        dog.setId(9);
+        Pet catNew = new Cat("Cat", "White", 2, "catNew");
+        cat.setId(2);
+        Pet parrotNew = new Parrot("Parrot", "Green", 5, "parrotNew");
+        parrot.setId(3);
+
         veterinary.add(dog);
+        veterinary.add(cat);
         veterinary.add(parrot);
+        veterinary.add(dogNew);
+        veterinary.add(catNew);
+        veterinary.add(parrotNew);
         menu(veterinary);
+
     }
 
     public static void menu(Veterinary veterinary) {
@@ -41,7 +56,7 @@ public class Main {
         do {
             System.out.println("Enter the option you want");
             System.out.println("1 .Register data of the animal   ");
-            System.out.println("2 .Show animals given an ID  ");
+            System.out.println("2 .Show animals by ID  ");
             System.out.println("3 .Remove animal given an ID ");
             System.out.println("4 .Show all animals ");
             System.out.println("5 .Show animals by type");
@@ -50,7 +65,10 @@ public class Main {
             System.out.println("8 .Exit");
             opcion = scanner.nextInt();
             scanner.nextLine();
-            switch (opcion) {
+
+            int id;
+            switch (opcion){
+
                 case 1:
                     System.out.println("-------------REGISTER NEW ANIMAL-----------");
                     System.out.println("Enter the type of animal");
@@ -82,6 +100,12 @@ public class Main {
 
                     break;
                 case 2:
+
+                            String input = System.console().readLine();
+                            id = Integer.parseInt(input);
+                            veterinary.ShowPetById(id);
+
+
                     break;
                 case 3:
                     deletePet(veterinary, scanner);
@@ -112,7 +136,7 @@ public class Main {
                     break;
                 case 6:
                     System.out.println("Write the pet ID");
-                    int id = scanner.nextInt();
+                    id = scanner.nextInt();
                     Pet pet = veterinary.search(id);
                     if (pet != null) {
                         Class<?> petClass = pet.getClass();
