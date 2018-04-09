@@ -62,7 +62,7 @@ public class Veterinary {
                 System.out.print("Name:" + pets.get(i).getName());
                 System.out.print("Color:" + pets.get(i).getColor());
                 System.out.print("Age:" + pets.get(i).getAge());
-                System.out.print("Tipo:" + pets.get(i).getTipo());
+                System.out.print("Tipo:" + pets.get(i).getType());
             }
         }
         if(exits = false) {
