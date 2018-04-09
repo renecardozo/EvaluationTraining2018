@@ -51,7 +51,7 @@ public class Veterinary {
         }
     }
 
-    public void ShowPetById(int id) {
+    public void showPetById(int id) {
         int i = 0;
         boolean found = false;
         while(i < pets.size() && !found) {
